@@ -1,6 +1,6 @@
 let balls = document.getElementsByClassName('ball');
 
-document.addEventListener('mousemove', (event) => {
+document.onmousemove = function() {
 
     let x = event.clientX * 100 / window.innerWidth + "%";
     let y = event.clientY * 100 / window.innerHeight + "%";
@@ -8,8 +8,9 @@ document.addEventListener('mousemove', (event) => {
     for(let i = 0; i < 2; i++){
         balls[i].style.left = x;
         balls[i].style.top = y;
+        balls[i].style.transform = "translate(-" + x +",-" + y + ")";
     }
     
     console.log("x=" + x);
     console.log("y=" + y);
-})
+}
